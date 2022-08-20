@@ -55,13 +55,15 @@
               </td>
               @endif
               <td>
-                <a href="/admin/konveksi/{{ strtolower($konveksi->nama_toko) }}" class="btn btn-info"><i data-feather="eye"></i></a>
+                {{-- <a href="/admin/konveksi/{{ strtolower($konveksi->nama_toko) }}" class="btn btn-info"><i data-feather="eye"></i></a> --}}
                 <a href="/admin/konveksi/{{ strtolower($konveksi->nama_toko) }}/edit" class="btn btn-warning"><i data-feather="edit"></i></a>
+                @can('admin')
                 <form action="/admin/konveksi/{{ strtolower($konveksi->nama_toko) }}" method="post" class="d-inline">
                   @method('delete')
                   @csrf
                   <button href="/admin/konveksi/{{ strtolower($konveksi->nama_toko) }}" class="btn btn-danger" type="submit" onclick="return confirm('Are you sure?')"><i data-feather="trash"></i></button>
                 </form>
+                @endcan
               </td>
             </tr>
             @endforeach

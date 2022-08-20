@@ -34,9 +34,9 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/admin/peta',[PetaController::class, 'index'])->name('peta.index')->scopeBindings();
     Route::get('/admin/peta/{peta:nama}',[PetaController::class, 'show'])->name('peta.index');
     Route::resource('/admin/toko', TokoController::class);
-    Route::resource('/admin/layanan', LayananController::class);
-    Route::resource('/admin/jahit', JahitController::class);
-    Route::resource('/admin/konveksi', KonveksiController::class);
+    Route::resource('/admin/layanan', LayananController::class)->except(['show']);
+    Route::resource('/admin/jahit', JahitController::class)->except(['show']);
+    Route::resource('/admin/konveksi', KonveksiController::class)->except(['show']);
 });
 
 
